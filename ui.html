@@ -1,0 +1,954 @@
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    
+    body {
+        font-family: "Inter";
+        background-color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        user-select: none;
+    }
+
+    .logo {
+        /* font-family: 'Helvetica' !important; */
+        font-weight: 500;
+    }
+
+    .head {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 10px 16px 0 16px;
+    }
+
+    .prompt-desc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .selection-space {
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        height: 330px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-weight: 600;
+        font-size: 27px;
+        line-height: 33px;
+        color: #000000;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    h2 {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        color: #000000;
+    }
+
+    h3 {
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 22px;
+        text-align: center;
+        color: #A5A5A5;
+        max-width: 317px;
+    }
+
+    .coffee {
+        font-size: 20px;
+        margin-left: 5px;
+    }
+
+    .buy-me-a-coffee {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        border: none;
+        cursor: pointer;
+        appearance: none;
+        background-color: inherit;
+    }
+
+    .layouts {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 8px;
+        margin-bottom: 30px;
+    }
+
+    .layouts-top {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .layout-option-one {
+        border: none;
+        cursor: pointer;
+        appearance: none;
+        background-color: inherit;
+
+        width: 183px;
+        height: 115px;
+
+        background: #FEFEFE;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 7px;
+        margin-right: 8px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+    }
+
+    .layout-one {
+        width: 120px;
+        height: 74px;
+
+        border: 1.5px solid rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+    }
+
+    .layout-option-two {
+        border: none;
+        cursor: pointer;
+        appearance: none;
+        background-color: inherit;
+
+        width: 183px;
+        height: 115px;
+
+        background: #FEFEFE;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 7px;
+        margin-left: 8px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        overflow: hidden;
+
+        position: relative;
+    }
+
+    .col {
+        display: flex;
+        flex-direction: row;
+        margin-left: 6px;
+        margin-right: 6px;
+    }
+
+    .col-rotate {
+        display: flex;
+        flex-direction: row;
+        transform: rotate(-15deg);
+        margin-left: 6px;
+        margin-right: 6px;
+    }
+
+    .left {
+        padding-left: 30px;
+    }
+
+    .right {
+        padding-right: 30px;
+    }
+
+    .layout-two {
+        width: 70px;
+        height: 50px;
+
+        border: 1.5px solid rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        margin: 7px;
+    }
+
+    .layout-option-three {
+        border: none;
+        cursor: pointer;
+        appearance: none;
+        background-color: inherit;
+
+        width: 183px;
+        height: 115px;
+
+        background: #FEFEFE;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 7px;
+        margin-left: 8px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        overflow: hidden;
+
+        position: relative;
+    }
+
+    .layout-three {
+        width: 70px;
+        height: 50px;
+
+        border: 1.5px solid rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        margin: 7px;
+    }
+
+    .continue {
+        width: 274px;
+        height: 43px;
+
+        background: #5379FF;
+        border-radius: 6px;
+        border: none;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: #FFFFFF;
+
+        cursor: pointer;
+    }
+
+    .select-frames {
+        position: absolute;
+        display: none;
+        margin-left: 1000px;
+        height: 100%;
+        width: 500px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+
+    .selected-frame {
+        border: none;
+        /* cursor: pointer; */
+        appearance: none;
+        background-color: inherit;
+
+        max-width: 240px;
+        /* height: auto; */
+        max-height: 150px;
+
+        background: #FEFEFE;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 7px;
+        margin: 8px;
+
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .finalize {
+        display: none;
+        margin-left: 1000px;
+        height: 100%;
+    }
+
+    /* animations */
+    .transition-out { 
+        margin-right: 1000px;
+        opacity: 0;
+        -webkit-transition: margin 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    }
+
+    .transition-in { 
+        margin-left: 0;
+        opacity: 1;
+        -webkit-transition: margin 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    }
+
+    .text-transition-out {
+        opacity: 0 !important;
+        -webkit-transition: opacity 0.2s ease-in-out;
+    }
+
+    .text-transition-in {
+        opacity: 1 !important;
+        -webkit-transition: opacity 0.2s ease-in-out;
+    }
+
+    .check-transition-in {
+        opacity: 1 !important;
+        -webkit-transition: opacity 0.1s ease-in-out;
+    }
+
+    .check-transition-out {
+        opacity: 0 !important;
+        -webkit-transition: opacity 0.1s ease-in-out;
+    }
+
+    .disabled-on {
+        cursor: default;
+        opacity: 0.5;
+        -webkit-transition: opacity 0.1s ease-in-out;
+    }
+
+    .disabled-off {
+        cursor: pointer;
+        opacity: 1;
+        -webkit-transition: opacity 0.1s ease-in-out;
+    }
+
+    .button-text-transition-out {
+        color: #5379FF !important;
+        -webkit-transition: color 0.2s ease-in-out;
+    }
+
+    .button-text-transition-in {
+        color: #FFFFFF !important;
+        -webkit-transition: color 0.2s ease-in-out;
+    }
+
+    .shrink-selection-space {
+        height: 100px !important;
+        -webkit-transition: height 0.2s ease-in-out;
+    }
+
+</style>
+<script>
+    let state = {
+        page: 0,
+        frames: [],
+        backgroundColor: '#FFFFFF'
+    }
+
+    // Wait for DOM to load
+    document.addEventListener('DOMContentLoaded', (event) => {
+
+        // Selecting first layout
+        document.getElementById('layout-one').addEventListener('click', () => {
+            if(state.layout == undefined || state.layout != 0) {
+                document.getElementById('check-one').classList.remove('check-transition-out')
+
+                document.getElementById('check-one').classList.add('check-transition-in')
+                state.layout = 0
+
+                // Set selection limit to 1
+                parent.postMessage({pluginMessage: {type:'selection-limit', limit: 1}}, '*')
+
+                document.getElementById('check-two').classList.add('check-transition-out')
+                document.getElementById('check-three').classList.add('check-transition-out')
+            } else {
+                document.getElementById('check-one').classList.remove('check-transition-in')
+
+                document.getElementById('check-one').classList.add('check-transition-out')
+                delete state["layout"]
+            }
+
+            toggleButton()
+        })
+
+        // Selecting second layout
+        document.getElementById('layout-two').addEventListener('click', () => {
+            if(state.layout == undefined || state.layout != 1) {
+                document.getElementById('check-two').classList.remove('check-transition-out')
+
+                document.getElementById('check-two').classList.add('check-transition-in')
+                state.layout = 1
+
+                // Set selection limit to 5
+                parent.postMessage({pluginMessage: {type:'selection-limit', limit: 5}}, '*')
+
+                document.getElementById('check-one').classList.add('check-transition-out')
+                document.getElementById('check-three').classList.add('check-transition-out')
+            } else {
+                document.getElementById('check-two').classList.remove('check-transition-in')
+
+                document.getElementById('check-two').classList.add('check-transition-out')
+                delete state["layout"]
+            }
+
+            toggleButton()
+        })
+
+        // Selecting third layout
+        document.getElementById('layout-three').addEventListener('click', () => {
+            if(state.layout == undefined || state.layout != 2) {
+                document.getElementById('check-three').classList.remove('check-transition-out')
+
+                document.getElementById('check-three').classList.add('check-transition-in')
+                state.layout = 2
+
+                // Set selection limit to 5
+                parent.postMessage({pluginMessage: {type:'selection-limit', limit: 5}}, '*')
+
+                document.getElementById('check-one').classList.add('check-transition-out')
+                document.getElementById('check-two').classList.add('check-transition-out')
+            } else {
+                document.getElementById('check-three').classList.remove('check-transition-in')
+
+                document.getElementById('check-three').classList.add('check-transition-out')
+                delete state["layout"]
+            }
+
+            toggleButton()
+        })
+
+        // Handles page change
+        document.getElementById('continue-btn').addEventListener('click', () => {
+
+            switch (state.page) {
+
+                case 0:
+
+                    // Transitions layouts out
+                    document.getElementById('layouts').classList.add('transition-out')
+
+                    // Transitions text out
+                    document.getElementById('info').classList.add('text-transition-out')
+                    setTimeout(function(){
+
+                        // Once layouts transitions out, remove that class and hide layouts
+                        document.getElementById('layouts').classList.remove('transition-out')
+                        hideElement('layouts')
+
+                        // Transition select-frames in
+                        document.getElementById('select-frames').style.display = 'flex'
+                        setTimeout(function(){
+                            document.getElementById('select-frames').classList.add('transition-in')
+                        }, 100)
+
+                        // Once text is transition out, remove that class
+                        document.getElementById('info').classList.remove('text-transition-out')
+
+                        // Change text value
+                        document.getElementById('status').textContent = "In Progress"
+                        document.getElementById('prompt').textContent = "Select your frame(s)"                            
+                        document.getElementById('description').textContent = `Please select ${ state.layout != 0 ? "up to 5 frames" : "one frame" } for your graphic to be made.`
+
+                        // Transition text back in
+                        document.getElementById('info').classList.add('text-transition-in')
+                    }, 200)
+
+                    state.page = 1
+
+                    if(state.frames.length == 0) {
+                        document.getElementById('continue-btn').classList.remove('disabled-off')
+                        document.getElementById('continue-btn').disabled = true
+                        document.getElementById('continue-btn').classList.add('disabled-on')
+                    }
+
+                    break;
+
+                case 1:
+                    // Remove old class from info
+                    document.getElementById('info').classList.remove('text-transition-in')
+
+                    // Transitions select-frames out
+                    document.getElementById('select-frames').classList.add('transition-out')
+
+                    // Transitions text out
+                    document.getElementById('prompt-desc').classList.add('text-transition-out')
+
+                    // Transition button text out
+                    document.getElementById('continue-btn').classList.add('button-text-transition-out')
+
+                    setTimeout(function(){
+
+                        // Once select-frames transitions out, remove that class and hide select-frames
+                        document.getElementById('select-frames').classList.remove('transition-out')
+                        hideElement('select-frames')
+
+                        // Transition finalize in
+                        document.getElementById('finalize').style.display = 'flex'
+                        setTimeout(function(){
+                            document.getElementById('finalize').classList.add('transition-in')
+                        }, 100)
+
+                        // Once text is transition out, remove that class
+                        document.getElementById('prompt-desc').classList.remove('text-transition-out')
+
+                        // Change text value
+                        document.getElementById('prompt').textContent = "Select your final touches"                            
+                        document.getElementById('description').textContent = "Select a background color or image. We recommend image dimensions of 1440x1024."
+
+                        // Transition text back in
+                        document.getElementById('prompt-desc').classList.add('text-transition-in')
+
+                        // Once button text is transition out, remove that class
+                        document.getElementById('continue-btn').classList.remove('button-text-transition-out')
+
+                        // Change button text value
+                        document.getElementById('continue-btn').textContent = "Generate"
+
+                        // Transition button text back in
+                        document.getElementById('continue-btn').classList.add('button-text-transition-in')
+                    }, 200)
+
+                    state.page = 2
+
+                    break;
+
+                case 2:
+                    // Remove old classes
+                    document.getElementById('prompt-desc').classList.remove('text-transition-in')
+                    document.getElementById('continue-btn').classList.remove('button-text-transition-in')
+
+                    // Transitions finalize out
+                    document.getElementById('finalize').classList.add('transition-out')
+
+                    // Transitions text out
+                    document.getElementById('info').classList.add('text-transition-out')
+
+                    // Transition button text out
+                    document.getElementById('continue-btn').classList.add('button-text-transition-out')
+
+                    setTimeout(function(){
+
+                        // Once finalize transitions out, remove that class and hide finalize
+                        document.getElementById('finalize').classList.remove('transition-out')
+                        hideElement('finalize')
+
+                        // Transition finished in
+                        // document.getElementById('finished').style.display = 'flex'
+                        // setTimeout(function(){
+                        //     document.getElementById('finished').classList.add('transition-in')
+                        // }, 100)
+
+                        // Once text is transition out, remove that class
+                        document.getElementById('info').classList.remove('text-transition-out')
+
+                        // Change text value
+                        document.getElementById('status').textContent = "Finished"
+                        document.getElementById('prompt').textContent = "Enjoy your new graphic"                            
+                        document.getElementById('description').textContent = "We hope you like your new user interface graphic, now show it off!"
+
+                        // Transition text back in
+                        document.getElementById('info').classList.add('text-transition-in')
+
+                        // Once button text is transition out, remove that class
+                        document.getElementById('continue-btn').classList.remove('button-text-transition-out')
+
+                        // Change button text value
+                        document.getElementById('continue-btn').textContent = "Finish"
+
+                        // Transition button text back in
+                        document.getElementById('continue-btn').classList.add('button-text-transition-in')
+
+                        // Shrink selection space
+                        document.querySelector("body > div.content > div.selection-space").classList.add('shrink-selection-space')
+                    }, 200)
+
+                    state.page = 3
+
+                    parent.postMessage({pluginMessage: {type:'generate', state: state}}, '*')
+
+                    break;
+                case 3:
+
+                    // Closes the plugin once finish is clicked
+                    parent.postMessage({pluginMessage: {type:'close-plugin'}}, '*')
+                    break;
+            }
+        })
+    })
+
+    function hideElement(id){
+        document.getElementById(id).style.display = "none"
+    }
+    
+    function toggleButton() {
+        if (state['layout'] == undefined) {
+            document.getElementById('continue-btn').classList.remove('disabled-off')
+            document.getElementById('continue-btn').disabled = true
+            document.getElementById('continue-btn').classList.add('disabled-on')
+        } else {
+            document.getElementById('continue-btn').classList.remove('disabled-on')
+            document.getElementById('continue-btn').disabled = false
+            document.getElementById('continue-btn').classList.add('disabled-off')
+        }
+    }
+
+    // Message handling
+    onmessage = (event) => {
+        msg = event.data.pluginMessage
+        if(msg.type == 'selection-change' && state.page < 2) {
+
+            // Adjust button
+            if(state.frames.length > 0 && msg.frames.length == 0 && state.page == 1){
+                document.getElementById('continue-btn').classList.remove('disabled-off')
+                document.getElementById('continue-btn').disabled = true
+                document.getElementById('continue-btn').classList.add('disabled-on')
+            } else if(state.frames.length == 0 && msg.frames.length > 0 && state.page == 1) {
+                document.getElementById('continue-btn').classList.remove('disabled-on')
+                document.getElementById('continue-btn').disabled = false
+                document.getElementById('continue-btn').classList.add('disabled-off')
+            }
+
+            state.frames = msg.frames
+
+            const myNode = document.getElementById("select-frames");
+            myNode.innerHTML = state.frames.length > 0 ? myNode.innerHTML = '' : '<h3>No frames selected</h3>';
+
+            state.frames.forEach(frame => {
+                let img = document.createElement('img')
+                img.src = URL.createObjectURL(
+                    new Blob([frame.png.buffer], { type: 'image/png' } /* (1) */)
+                );
+                img.classList.add('selected-frame')
+                document.getElementById('select-frames').appendChild(img)
+            });
+
+            const elements = document.querySelectorAll('.selected-frame');
+
+            elements.forEach((element, index) => {
+                switch (elements.length) {
+                    case 2:
+                        element.style.left = `${(136-15)+(index*30)}px`
+                        break;
+                    case 3:
+                        element.style.left = `${(136-30)+(index*30)}px`
+                        break;
+                    case 4:
+                        element.style.left = `${(136-45)+(index*30)}px`
+                        break;
+                    case 5:
+                        element.style.left = `${(136-60)+(index*30)}px`
+                        break;
+                }
+            });
+        } else if (msg.type == 'selection-change' && state.page == 2) {
+            if (msg.frames.length != 0) {
+                // Enable continue button
+                document.getElementById('continue-btn').classList.remove('disabled-on')
+                document.getElementById('continue-btn').disabled = false
+                document.getElementById('continue-btn').classList.add('disabled-off')
+
+                // Remove old class
+                document.getElementById('select-background-frame-status').classList.remove('text-transition-in')
+
+                // Transitions text out
+                document.getElementById('select-background-frame-status').classList.add('text-transition-out')
+                setTimeout(function(){
+
+                    // Once text is transition out, remove that class
+                    document.getElementById('select-background-frame-status').classList.remove('text-transition-out')
+
+                    // Change text value
+                    document.getElementById('select-background-frame-status').textContent = state.backgroundImage.name
+
+                    // Transition text back in
+                    document.getElementById('select-background-frame-status').classList.add('text-transition-in')
+                }, 200)
+
+                state.backgroundImage = msg.frames[0]
+            } else {
+                // Disable continue button
+                document.getElementById('continue-btn').classList.remove('disabled-off')
+                document.getElementById('continue-btn').disabled = true
+                document.getElementById('continue-btn').classList.add('disabled-on')
+
+                // Remove old classes
+                document.getElementById('select-background-frame-status').classList.remove('text-transition-in')
+
+                // Transitions text out
+                document.getElementById('select-background-frame-status').classList.add('text-transition-out')
+                setTimeout(function(){
+
+                    // Once text is transition out, remove that class
+                    document.getElementById('select-background-frame-status').classList.remove('text-transition-out')
+
+                    // Change text value
+                    document.getElementById('select-background-frame-status').textContent = "No frame detected"
+
+                    // Transition text back in
+                    document.getElementById('select-background-frame-status').classList.add('text-transition-in')
+                }, 200)
+
+                state.backgroundImage = "none"
+            }
+        }
+    }
+
+</script>
+<div class="head">
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <h2 class="logo">Teton</h2>
+    </div>
+
+    <button class="buy-me-a-coffee" onclick='window.open(`https://www.buymeacoffee.com/forge`)'>
+        <h3>Buy me a coffee</h3>
+        <span class="coffee">☕️</span>
+    </button>
+</div>
+<div class="content">
+    <div id="info" class="info">
+        <h2 id="status">Welcome</h2>
+        <div class="prompt-desc" id="prompt-desc">
+            <h1 id="prompt" >Choose your layout</h1>
+            <h3 id="description" >Please select any of the layouts below to begin the process.</h3>
+        </div>
+    </div>
+    <div class="selection-space">
+
+        <!-- Layouts -->
+        <div id="layouts" class="layouts">
+            <div class="layouts-top">
+                <button id="layout-one" class="layout-option-one">
+                    <div class="layout-one"></div>
+                    <div id="check-one" style="opacity: 0; position: absolute; top: 8px; right: 12px; display: flex; align-items: center; justify-content: center; width: 13px; height: 13px; background-color: #55CB84; border-radius: 50%;">
+                        <img style="width: 7px;" src="https://cdn.discordapp.com/attachments/708633530032324619/1068561123818868796/Vector.png" alt="checkmark">
+                    </div>
+                </button>
+                <button id="layout-two" class="layout-option-two">
+                    <div class="col-rotate left">
+                        <div class="layout-two"></div>
+                        <div class="layout-two"></div>
+                        <div class="layout-two"></div>
+                    </div>
+                    <div class="col-rotate">
+                        <div class="layout-two"></div>
+                        <div class="layout-two"></div>
+                        <div class="layout-two"></div>
+                    </div>
+                    <div class="col-rotate right">
+                        <div class="layout-two"></div>
+                        <div class="layout-two"></div>
+                        <div class="layout-two"></div>
+                    </div>
+                    <div id="check-two" style="opacity: 0; position: absolute; top: 8px; right: 12px; display: flex; align-items: center; justify-content: center; width: 13px; height: 13px; background-color: #55CB84; border-radius: 50%;">
+                        <img style="width: 7px;" src="https://cdn.discordapp.com/attachments/708633530032324619/1068561123818868796/Vector.png" alt="checkmark">
+                    </div>
+                </button>
+            </div>
+            <div class="layouts-bottom">
+                <button id="layout-three" class="layout-option-three">
+                    <div class="col" style="padding-left: 50px;">
+                        <div class="layout-three"></div>
+                        <div class="layout-three"></div>
+                        <div class="layout-three"></div>
+                    </div>
+                    <div class="col">
+                        <div class="layout-three"></div>
+                        <div class="layout-three"></div>
+                        <div class="layout-three"></div>
+                    </div>
+                    <div class="col" style="padding-right: 60px;">
+                        <div class="layout-three"></div>
+                        <div class="layout-three"></div>
+                        <div class="layout-three"></div>
+                    </div>
+                    <div id="check-three" style="opacity: 0; position: absolute; top: 8px; right: 12px; display: flex; align-items: center; justify-content: center; width: 13px; height: 13px; background-color: #55CB84; border-radius: 50%;">
+                        <img style="width: 7px;" src="https://cdn.discordapp.com/attachments/708633530032324619/1068561123818868796/Vector.png" alt="checkmark">
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Select Frames -->
+        <div id="select-frames" class="select-frames" >
+            <h3>No frames selected</h3>
+        </div>
+
+        <!-- Finalize -->
+        <div id="finalize" class="finalize">
+            <div class="background-selection-wrapper">
+                <div class="color_wrapper">
+                    <img class="color_image" src="https://cdn.discordapp.com/attachments/708633530032324619/1069361634390311072/5d107b5ed8fdb8964fbad44174bc9b18_1.png" alt="">
+                    <div class="color_choice" id="color_choice"></div>
+                    <input type="color" class="color_picker" id="color_picker" value="#FFFFFF">
+                </div>
+                <h3 style="font-size: 10px;">Background Color</h3>
+            </div>
+            <div class="background-selection-wrapper">
+                <button class="select-background" id="select-background">
+                    <h3 style="color: #A5A5A5;" id="select-background-frame-status">Select Frame</h3>
+                </button>
+                <h3 style="font-size: 10px;">Background Frame</h3>
+            </div>
+        </input>
+        <script>
+            document.getElementById('color_picker').addEventListener('input', (event) => {
+                state.backgroundColor = event.target.value
+                document.getElementById('color_choice').style.backgroundColor = event.target.value
+            })
+
+            document.getElementById('select-background').addEventListener('click', (event) => {
+                if(state.backgroundImage == undefined) {
+
+                    // Disable continue button
+                    document.getElementById('continue-btn').classList.remove('disabled-off')
+                    document.getElementById('continue-btn').disabled = true
+                    document.getElementById('continue-btn').classList.add('disabled-on')
+
+                    // Remove old classes
+                    document.getElementById('select-background-frame-status').classList.remove('text-transition-in')
+                    document.getElementById('select-background').classList.remove('remove-outline')
+
+                    // Transitions text out
+                    document.getElementById('select-background-frame-status').classList.add('text-transition-out')
+                    setTimeout(function(){
+
+                        // Add outline
+                        document.getElementById('select-background').classList.add('add-outline')
+
+                        // Once text is transition out, remove that class
+                        document.getElementById('select-background-frame-status').classList.remove('text-transition-out')
+
+                        // Change text value
+                        document.getElementById('select-background-frame-status').textContent = "No frame detected"
+
+                        // Transition text back in
+                        document.getElementById('select-background-frame-status').classList.add('text-transition-in')
+                    }, 200)
+                    
+                    state.backgroundImage = "none"
+                } else {
+
+                    // Enable continue button
+                    document.getElementById('continue-btn').classList.remove('disabled-on')
+                    document.getElementById('continue-btn').disabled = false
+                    document.getElementById('continue-btn').classList.add('disabled-off')
+
+                    // Remove old classes
+                    document.getElementById('select-background-frame-status').classList.remove('text-transition-in')
+                    document.getElementById('select-background').classList.remove('add-outline')
+
+                    // Transitions text out
+                    document.getElementById('select-background-frame-status').classList.add('text-transition-out')
+                    setTimeout(function(){
+
+                         // Remove outline
+                         document.getElementById('select-background').classList.add('remove-outline')
+
+                        // Once text is transition out, remove that class
+                        document.getElementById('select-background-frame-status').classList.remove('text-transition-out')
+
+                        // Change text value
+                        document.getElementById('select-background-frame-status').textContent = "Select Frame"
+
+                        // Transition text back in
+                        document.getElementById('select-background-frame-status').classList.add('text-transition-in')
+                    }, 200)
+
+                    delete state.backgroundImage
+                }
+            })
+        </script>
+        <style>
+            .finalize {
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .background-selection-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 18px;
+                margin-left: 18px;
+            }
+
+            .color_wrapper {
+                display: flex;
+                flex-direction: row;
+                width: 151px;
+                height: 95px;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .color_image {
+                position: absolute;
+                width: 151px;
+                height: 95px;
+                border: 1px solid rgba(0, 0, 0, 0.05);
+                box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+                border-radius: 7px;
+            }
+
+            .color_choice {
+                position: relative;
+                width: 19px;
+                height: 19px;
+                border: 1px solid #0000000D;
+                background-color: #FFFFFF;
+                border-radius: 2px;
+                top: 29px;
+                right: 57px;
+            }
+
+            .color_picker {
+                position: absolute;
+                z-index: 1;
+                width: 151px;
+                height: 95px;
+                border-radius: 7px;
+                border: none;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+            .select-background {
+                width: 151px;
+                height: 95px;
+                background: #FEFEFE;
+                border: 1px solid rgba(0, 0, 0, 0.05);
+                box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+                border-radius: 7px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+
+            .add-outline {
+                outline: 1px solid #5379FF;
+                -webkit-animation: outline 0.2s ease-in-out;
+            }
+
+            .remove-outline {
+                outline: none;
+                -webkit-animation: outline 0.2s ease-in-out;
+            }
+
+        </style>
+        </div>
+    </div>
+    <button disabled id="continue-btn" class="continue disabled-on">Continue</button>
+</div>
